@@ -7,7 +7,6 @@
 
 
 // BASE STYLES
-
 @media screen and (min-width: 320px) {
   html,
   body {
@@ -16,7 +15,8 @@
 }
 
 body {
-  background-color: #fff6fb;
+  background-color: var(--bcg-color1);
+  color: var(--font-color2);
 }
 
 button {
@@ -36,36 +36,3 @@ button {
   overflow: hidden;
 }
 
-// ADAPTIVE
-
-.container {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-// Mobile
-@media screen and (max-width: 767px) {
-  .container {
-    
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-}
-
-// Tablet
-@media screen and (min-width: 768px) {
-  .container {
-    width: 768px;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-}
-
-// Desktop
-@media screen and (min-width: 1200px) {
-  .container {
-    width: 1200px;
-    padding-left: 48px;
-    padding-right: 48px;
-  }
-}
