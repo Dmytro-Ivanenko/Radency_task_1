@@ -1,5 +1,3 @@
-import './js/burgerMenu';
-import './js/customDetails';
-import './js/orderClick';
-import './js/modalForm';
-import './api/emailJsSDK';
+import Notes from './storage/notes.json';
+
+console.dir(Notes.notes);

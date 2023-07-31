@@ -4,7 +4,8 @@
   "description": "Task 1 for internship in Radency",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /radency_task_1/"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,8 @@
     "@babel/preset-env": "^7.22.9",
     "eslint": "^8.46.0",
     "parcel-bundler": "^1.12.5",
-    "prettier": "^3.0.0"
+    "posthtml-include": "^1.7.4",
+    "prettier": "^3.0.0",
+    "sass": "^1.64.1"
   }
 }
