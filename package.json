@@ -1,0 +1,28 @@
+{
+  "name": "radency_task_1",
+  "version": "1.0.0",
+  "description": "Task 1 for internship in Radency",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dmytro-Ivanenko/Radency_task_1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dmytro-Ivanenko/Radency_task_1/issues"
+  },
+  "homepage": "https://github.com/Dmytro-Ivanenko/Radency_task_1#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.22.9",
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "eslint": "^8.46.0",
+    "parcel-bundler": "^1.12.5",
+    "prettier": "^3.0.0"
+  }
+}
