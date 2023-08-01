@@ -1,12 +1,6 @@
-import { toFilterNotes } from './filter';
-
 const NotesTable = document.querySelector('#notesTableBody');
-const selectedFilter = document.querySelector(
-  'input[name="notesFilter"]:checked'
-).value;
 
-export const notesMarkup = () => {
-  const notesArr = toFilterNotes(selectedFilter);
+export const notesMarkup = notesArr => {
   const markup = notesArr
     .map(({ id, name, content, createdAt, category, status }) => {
       return `<tr>
@@ -27,5 +21,3 @@ export const notesMarkup = () => {
 
   NotesTable.innerHTML = markup;
 };
-
-notesMarkup();

@@ -6,7 +6,7 @@
       "createdAt": "2023-07-30T10:00:00Z",
       "content": "Plan vacation on 15/8/2023",
       "category": "Task",
-      "status": "archived"
+      "status": "active"
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "createdAt": "2023-07-29T15:30:00Z",
       "content": "Idea: Create a note-taking app in JS",
       "category": "Idea",
-      "status": "archived"
+      "status": "active"
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "createdAt": "2023-07-28T14:20:00Z",
       "content": "Random thought: Go for a walk tomorrow",
       "category": "Random Thought",
-      "status": "archived"
+      "status": "active"
     },
     {
       "id": 4,
