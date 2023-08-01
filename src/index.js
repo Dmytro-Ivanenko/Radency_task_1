@@ -1,3 +1,3 @@
 import './js/storageAPI';
-import './js/filter';
 import './js/notesList';
+import './js/categoryList';
