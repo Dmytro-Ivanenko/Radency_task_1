@@ -1,7 +1,11 @@
-import { getData } from './storageAPI';
+import { getData } from '../services/storageAPI';
 import { fillNotesTable } from './notesList';
 
 const Filter = document.querySelector('.filter');
+
+export const getCurrentFilterValue = () => {
+  return document.querySelector('input[name="notesFilter"]:checked').value;
+};
 
 export const toFilterNotes = status => {
   const notesArr = getData('notes');

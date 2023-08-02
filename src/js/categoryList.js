@@ -1,4 +1,4 @@
-import { getData } from './storageAPI';
+import { getData } from '../services/storageAPI';
 const CategoryTable = document.querySelector('#categoryTableBody');
 
 const categoryMarkup = notesArr => {
