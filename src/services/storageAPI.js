@@ -14,6 +14,20 @@ export const addData = (key, dataArr) => {
   localStorage.setItem(key, JSON.stringify(updatedArr));
 };
 
+export const updateData = (key, dataObj) => {
+  const { id, name, content, category } = dataObj;
+  const currentArr = getData(key);
+  const updatedArr = currentArr.map(note => {
+    if (note.id === id) {
+      return { ...note, name, content, category };
+    } else {
+      return note;
+    }
+  });
+
+  localStorage.setItem(key, JSON.stringify(updatedArr));
+};
+
 // in develope
 export const deleteData = key => {
   return JSON.parse(localStorage.removeItem(`${key}`));
