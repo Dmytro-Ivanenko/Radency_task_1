@@ -1,3 +1,3 @@
-import Notes from './storage/notes.json';
-
-console.dir(Notes.notes);
+import './js/storageAPI';
+import './js/notesList';
+import './js/categoryList';

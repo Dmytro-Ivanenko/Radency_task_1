@@ -2,48 +2,59 @@
   "notes": [
     {
       "id": 1,
+      "name": "Vacation Planning",
       "createdAt": "2023-07-30T10:00:00Z",
       "content": "Plan vacation on 15/8/2023",
-      "category": "Task"
+      "category": "Task",
+      "status": "active"
     },
     {
       "id": 2,
+      "name": "Note-taking App Idea",
       "createdAt": "2023-07-29T15:30:00Z",
       "content": "Idea: Create a note-taking app in JS",
-      "category": "Idea"
+      "category": "Idea",
+      "status": "active"
     },
     {
       "id": 3,
+      "name": "Random Thought",
       "createdAt": "2023-07-28T14:20:00Z",
       "content": "Random thought: Go for a walk tomorrow",
-      "category": "Random Thought"
+      "category": "Random Thought",
+      "status": "active"
     },
     {
       "id": 4,
+      "name": "Meeting with a Friend",
       "createdAt": "2023-07-27T09:45:00Z",
       "content": "Schedule a meeting with a friend on 2/8/2023",
-      "category": "Task"
+      "category": "Task",
+      "status": "archived"
     },
-
     {
       "id": 7,
+      "name": "Forest Relaxation",
       "createdAt": "2023-07-24T16:40:00Z",
       "content": "Go to the forest for relaxation on 8/8/2023",
-      "category": "Task"
-    }
-  ],
-  "archivedNotes": [
+      "category": "Task",
+      "status": "archived"
+    },
     {
       "id": 5,
+      "name": "Apartment Cleaning",
       "createdAt": "2023-07-26T17:55:00Z",
       "content": "Clean the apartment by 31/7/2023",
-      "category": "Task"
+      "category": "Task",
+      "status": "active"
     },
     {
       "id": 6,
+      "name": "Trip Planning",
       "createdAt": "2023-07-25T12:10:00Z",
       "content": "Planning: Trip on 20/9/2023",
-      "category": "Task"
+      "category": "Task",
+      "status": "active"
     }
   ]
 }
