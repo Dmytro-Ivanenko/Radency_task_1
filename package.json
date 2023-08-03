@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /radency_task_1/"
+    "build": "parcel build src/*.html --public-url /Radency_task_1/"
   },
   "repository": {
     "type": "git",
