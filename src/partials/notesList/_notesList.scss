@@ -1,0 +1,105 @@
+// * {
+//   outline: 1px solid green;
+// }
+
+.notes_listWrapper {
+  margin-bottom: 40px;
+}
+
+.notes_table {
+  width: 100%;
+
+  border-spacing: 0 20px;
+  color: var(--font-color1);
+  margin-top: 20px;
+}
+
+.notes_table th,
+.notes_table td {
+  padding: 10px;
+  background-color: var(--bcg-color2);
+  text-align: center;
+}
+
+.notes_table th {
+  background-color: var(--acc-color1);
+  font-weight: bold;
+}
+
+tr.editable {
+  outline: 1px solid var(--acc-color1);
+}
+
+.notes_table input[type='text'],
+.notes_table select {
+  width: 100%;
+  background-color: transparent;
+  color: var(--font-color1);
+  border: none;
+  outline: none;
+  font-size: 20px;
+  text-align: center;
+
+  border-bottom: 1px solid var(--font-color2);
+}
+
+.notes_table input[readonly],
+.notes_table select:disabled {
+  text-decoration: none;
+  font-size: 16px;
+  border: none;
+}
+
+.notes_table select {
+  background: transparent;
+  width: 150px;
+  appearance: none;
+  opacity: 1;
+}
+
+.notes_table button {
+  background-color: var(--acc-color1);
+  color: var(--font-color1);
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+.notes_table button.notes_editButton.editable {
+  background-color: var(--acc-color1);
+}
+
+.notes_table button.toActiveBtn {
+  background-color: var(--acc-color1);
+}
+//buttons
+.notes_archiveAllButton,
+.notes_deleteAllButton {
+  background-color: var(--acc-color1);
+  color: var(--font-color1);
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.addNoteButton {
+  background-color: var(--acc-color1);
+  color: var(--font-color1);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 20px;
+
+  &:hover {
+    background-color: var(--acc-color2);
+    color: var(--bcg-color1);
+  }
+}

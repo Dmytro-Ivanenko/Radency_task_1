@@ -9,6 +9,7 @@
   display: none;
   &:checked + label {
     border-bottom: 2px solid var(--acc-color1);
+    color: var(--font-color1);
     cursor: default;
   }
 }

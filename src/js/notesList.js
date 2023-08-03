@@ -28,7 +28,7 @@ export const notesMarkup = (notesArr, editable = false) => {
   const markup = notesArr
     .map(({ id, name, content, createdAt, category }) => {
       const dates = extractDatesFromText(content);
-      return `<tr id=${id}>
+      return `<tr class="${editable ? 'editable' : ''}" id=${id}>
   <td><input type="text" value="${name}" name="name"  ${
     editable ? '' : 'readonly'
   } /></td>
@@ -138,6 +138,7 @@ const onEditNoteClick = button => {
   }
 
   button.classList.toggle('editable');
+  row.classList.toggle('editable');
 };
 
 // Click handler for "Archive" button in a note
