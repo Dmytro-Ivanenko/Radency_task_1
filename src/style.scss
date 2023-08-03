@@ -20,6 +20,9 @@ body {
 
 button {
   cursor: pointer;
+  &:hover {
+    background-color: var(--acc-color2);
+  }
 }
 
 .visually-hidden {

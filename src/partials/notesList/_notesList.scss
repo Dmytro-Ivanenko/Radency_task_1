@@ -1,7 +1,3 @@
-// * {
-//   outline: 1px solid green;
-// }
-
 .notes_listWrapper {
   margin-bottom: 40px;
 }
@@ -12,6 +8,7 @@
   border-spacing: 0 20px;
   color: var(--font-color1);
   margin-top: 20px;
+  font-size: 18px;
 }
 
 .notes_table th,
@@ -46,7 +43,7 @@ tr.editable {
 .notes_table input[readonly],
 .notes_table select:disabled {
   text-decoration: none;
-  font-size: 16px;
+  font-size: 18px;
   border: none;
 }
 
@@ -59,22 +56,17 @@ tr.editable {
 
 .notes_table button {
   background-color: var(--acc-color1);
-  color: var(--font-color1);
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
   margin-right: 5px;
 }
 
 .notes_table button.notes_editButton.editable {
-  background-color: var(--acc-color1);
+  background-color: var(--acc-color2);
 }
 
-.notes_table button.toActiveBtn {
-  background-color: var(--acc-color1);
-}
 //buttons
 .notes_archiveAllButton,
 .notes_deleteAllButton {
@@ -84,7 +76,6 @@ tr.editable {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
   margin-right: 10px;
 }
 
@@ -102,4 +93,27 @@ tr.editable {
     background-color: var(--acc-color2);
     color: var(--bcg-color1);
   }
+}
+
+.notes_editButton,
+.notes_archiveButton,
+.notes_deleteButton,
+.notes_archiveAllButton,
+.notes_deleteAllButton {
+  width: 40px;
+  height: 40px;
+}
+
+.notes_editButton {
+  background: url('./assets/icons/icon_edit.svg') center center no-repeat;
+}
+
+.notes_archiveButton,
+.notes_archiveAllButton {
+  background: url('./assets/icons/icon_archive.svg') center center no-repeat;
+}
+
+.notes_deleteButton,
+.notes_deleteAllButton {
+  background: url('./assets/icons/icon_delete.svg') center center no-repeat;
 }

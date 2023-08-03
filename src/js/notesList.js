@@ -53,11 +53,11 @@ export const notesMarkup = (notesArr, editable = false) => {
   <td>
     <div> <button class="notes_editButton ${
       editable ? 'editable' : ''
-    }" > edit </button>
+    }" ></button>
         <button class="notes_archiveButton  ${
           filterValue === 'archived' ? 'toActiveBtn' : ''
-        }"> arch </button>
-        <button class="notes_deleteButton"> del </button>
+        }"></button>
+        <button class="notes_deleteButton"></button>
     </div>
   </td>
 </tr>`;
