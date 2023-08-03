@@ -21,4 +21,4 @@ var e=require("process"),r=void 0!==e&&e.pid?e.pid.toString(36):"",t="";if("func
 },{"uniqid":"nFMj","../services/storageAPI":"OTz0","./filter":"GDIU","./categoryList":"Sxet","../services/workWithDate":"OzcH"}],"Focm":[function(require,module,exports) {
 "use strict";require("./services/storageAPI"),require("./js/notesList"),require("./js/categoryList");
 },{"./services/storageAPI":"OTz0","./js/notesList":"kWsT","./js/categoryList":"Sxet"}]},{},["Focm"], null)
-//# sourceMappingURL=/radency_task_1/src.51b3526e.js.map
+//# sourceMappingURL=/Radency_task_1/src.51b3526e.js.map
