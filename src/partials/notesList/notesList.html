@@ -1,16 +1,16 @@
-<div class="notesListWrapper">
-    <table>
+<div class="notes_listWrapper">
+    <table id="notesTable">
         <thead>
             <tr>
                 <th>Name</th>
                 <th>Created</th>
-                <th>Content</th>
                 <th>Category</th>
+                <th>Content</th>
                 <th>Dates</th>
                 <th>
                     <div>
-                        <button>Архів</button>
-                        <button>Видалити</button>
+                        <button class="notes_archiveAllButton">Архів</button>
+                        <button class="notes_deleteAllButton">Видалити</button>
                     </div>
                 </th>
             </tr>
@@ -19,5 +19,5 @@
             <!-- This is where the notes will be dynamically generated -->
         </tbody>
     </table>
-    <button>Add note</button>
+    <button class="addNoteButton" id="addNote">Create note</button>
 </div>
