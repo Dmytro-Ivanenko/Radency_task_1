@@ -1,5 +1,13 @@
 import uniqid from 'uniqid';
-import { addData, updateData } from '../services/storageAPI';
+
+import {
+  addData,
+  updateData,
+  archiveData,
+  archiveAllData,
+  deleteData,
+  deleteAllData,
+} from '../services/storageAPI';
 import { toFilterNotes, getCurrentFilterValue } from './filter';
 import { fillCategoryTable } from './categoryList';
 import {
@@ -7,10 +15,14 @@ import {
   extractDatesFromText,
 } from '../services/workWithDate';
 
-const NotesTable = document.querySelector('#notesTableBody');
+const NotesTable = document.querySelector('#notesTable');
+const NotesTableBody = document.querySelector('#notesTableBody');
 const AddNoteButton = document.querySelector('#addNote');
 
+//    __ FUNCTIONS __
 export const notesMarkup = (notesArr, editable = false) => {
+  const filterValue = getCurrentFilterValue();
+
   const markup = notesArr
     .map(({ id, name, content, createdAt, category }) => {
       const dates = extractDatesFromText(content);
@@ -41,8 +53,10 @@ export const notesMarkup = (notesArr, editable = false) => {
     <div> <button class="notes_editButton ${
       editable ? 'editable' : ''
     }" > edit </button>
-        <button> arch </button>
-        <button> del </button>
+        <button class="notes_archiveButton  ${
+          filterValue === 'archived' ? 'toActiveBtn' : ''
+        }"> arch </button>
+        <button class="notes_deleteButton"> del </button>
     </div>
   </td>
 </tr>`;
@@ -52,24 +66,16 @@ export const notesMarkup = (notesArr, editable = false) => {
   return markup;
 };
 
-const fillListeners = () => {
-  const editButtons = document.querySelectorAll('.notes_editButton');
-  editButtons.forEach(elem => {
-    elem.addEventListener('click', onEditNoteClick);
-  });
-};
-
 export const fillNotesTable = (notesArr = null) => {
   if (!notesArr) {
     const filteredArr = toFilterNotes(getCurrentFilterValue());
-    NotesTable.innerHTML = notesMarkup(filteredArr);
+    NotesTableBody.innerHTML = notesMarkup(filteredArr);
   } else {
-    NotesTable.innerHTML = notesMarkup(notesArr);
+    NotesTableBody.innerHTML = notesMarkup(notesArr);
   }
-
-  fillListeners();
 };
 
+// Working with notes
 const addNewNote = () => {
   const newNote = [
     {
@@ -90,8 +96,9 @@ const addNewNote = () => {
     console.log(error);
   }
 
-  NotesTable.insertAdjacentHTML('beforeend', newNoteMarkup);
+  NotesTableBody.insertAdjacentHTML('beforeend', newNoteMarkup);
 };
+
 const saveChanges = (parent, name, content, category) => {
   const dataObj = {
     id: parent.id,
@@ -101,6 +108,7 @@ const saveChanges = (parent, name, content, category) => {
   };
 
   updateData('notes', dataObj);
+  fillCategoryTable();
 };
 
 const onAddNoteClick = () => {
@@ -108,15 +116,15 @@ const onAddNoteClick = () => {
   fillCategoryTable();
 };
 
-function onEditNoteClick({ target }) {
-  const parent = target.closest('tr');
+const onEditNoteClick = button => {
+  const row = button.closest('tr');
 
-  const nameInput = parent.querySelector('input[name="name"]');
-  const contentInput = parent.querySelector('input[name="content"]');
-  const categorySelect = parent.querySelector('select[name="category"]');
+  const nameInput = row.querySelector('input[name="name"]');
+  const contentInput = row.querySelector('input[name="content"]');
+  const categorySelect = row.querySelector('select[name="category"]');
 
-  if (target.classList.value.includes('editable')) {
-    saveChanges(parent, nameInput, contentInput, categorySelect);
+  if (button.classList.value.includes('editable')) {
+    saveChanges(row, nameInput, contentInput, categorySelect);
 
     nameInput.setAttribute('readonly', 'readonly');
     contentInput.setAttribute('readonly', 'readonly');
@@ -127,11 +135,50 @@ function onEditNoteClick({ target }) {
     categorySelect.removeAttribute('disabled');
   }
 
-  target.classList.toggle('editable');
-}
+  button.classList.toggle('editable');
+};
+
+const onArchiveNoteClick = button => {
+  const row = button.closest('tr');
+
+  archiveData('notes', row.id);
+  row.remove();
+  fillCategoryTable();
+};
+
+const onDeleteNoteClick = button => {
+  const row = button.closest('tr');
+
+  deleteData('notes', row.id);
+  row.remove();
+  fillCategoryTable();
+};
+
+const onArchiveAllNoteClick = () => {
+  archiveAllData('notes', getCurrentFilterValue());
+  NotesTableBody.innerHTML = '';
+  fillCategoryTable();
+};
+
+const onDeleteAllNoteClick = () => {
+  deleteAllData('notes', getCurrentFilterValue());
+  NotesTableBody.innerHTML = '';
+  fillCategoryTable();
+};
 
 fillNotesTable();
 
 AddNoteButton.addEventListener('click', onAddNoteClick);
-
-// не працює функція збереження, перевірити роботу лістнерів при фільтрації
+NotesTable.addEventListener('click', event => {
+  if (event.target.classList.contains('notes_editButton')) {
+    onEditNoteClick(event.target);
+  } else if (event.target.classList.contains('notes_archiveButton')) {
+    onArchiveNoteClick(event.target);
+  } else if (event.target.classList.contains('notes_deleteButton')) {
+    onDeleteNoteClick(event.target);
+  } else if (event.target.classList.contains('notes_archiveAllButton')) {
+    onArchiveAllNoteClick(event.target);
+  } else if (event.target.classList.contains('notes_deleteAllButton')) {
+    onDeleteAllNoteClick(event.target);
+  }
+});
