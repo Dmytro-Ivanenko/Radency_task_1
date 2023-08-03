@@ -2,7 +2,7 @@
   "name": "radency_task_1",
   "version": "1.0.0",
   "description": "Task 1 for internship in Radency",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /radency_task_1/"
