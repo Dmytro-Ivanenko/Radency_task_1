@@ -1,5 +1,5 @@
+// Import necessary modules and functions
 import uniqid from 'uniqid';
-
 import {
   addData,
   updateData,
@@ -15,11 +15,13 @@ import {
   extractDatesFromText,
 } from '../services/workWithDate';
 
+// Find elements on the page
 const NotesTable = document.querySelector('#notesTable');
 const NotesTableBody = document.querySelector('#notesTableBody');
 const AddNoteButton = document.querySelector('#addNote');
 
 //    __ FUNCTIONS __
+// Function to generate HTML markup for displaying notes in the table
 export const notesMarkup = (notesArr, editable = false) => {
   const filterValue = getCurrentFilterValue();
 
@@ -42,7 +44,6 @@ export const notesMarkup = (notesArr, editable = false) => {
        <option value="Random Thought" ${
          category === 'Random Thought' ? 'selected' : ''
        }>Random Thought</option>
-      
     </select>
   </td>
   <td><input type="text" value="${content}" name="content" ${
@@ -66,6 +67,7 @@ export const notesMarkup = (notesArr, editable = false) => {
   return markup;
 };
 
+// Fill the table with notes
 export const fillNotesTable = (notesArr = null) => {
   if (!notesArr) {
     const filteredArr = toFilterNotes(getCurrentFilterValue());
@@ -75,7 +77,7 @@ export const fillNotesTable = (notesArr = null) => {
   }
 };
 
-// Working with notes
+// Add a new note
 const addNewNote = () => {
   const newNote = [
     {
@@ -99,6 +101,7 @@ const addNewNote = () => {
   NotesTableBody.insertAdjacentHTML('beforeend', newNoteMarkup);
 };
 
+// Save changes in a note
 const saveChanges = (parent, name, content, category) => {
   const dataObj = {
     id: parent.id,
@@ -111,11 +114,13 @@ const saveChanges = (parent, name, content, category) => {
   fillCategoryTable();
 };
 
+// Click handler for "Add Note" button
 const onAddNoteClick = () => {
   addNewNote();
   fillCategoryTable();
 };
 
+// Click handler for "Edit" button in a note
 const onEditNoteClick = button => {
   const row = button.closest('tr');
 
@@ -125,10 +130,7 @@ const onEditNoteClick = button => {
 
   if (button.classList.value.includes('editable')) {
     saveChanges(row, nameInput, contentInput, categorySelect);
-
-    nameInput.setAttribute('readonly', 'readonly');
-    contentInput.setAttribute('readonly', 'readonly');
-    categorySelect.setAttribute('disabled', 'disabled');
+    fillNotesTable();
   } else {
     nameInput.removeAttribute('readonly');
     contentInput.removeAttribute('readonly');
@@ -138,6 +140,7 @@ const onEditNoteClick = button => {
   button.classList.toggle('editable');
 };
 
+// Click handler for "Archive" button in a note
 const onArchiveNoteClick = button => {
   const row = button.closest('tr');
 
@@ -146,6 +149,7 @@ const onArchiveNoteClick = button => {
   fillCategoryTable();
 };
 
+// Click handler for "Delete" button in a note
 const onDeleteNoteClick = button => {
   const row = button.closest('tr');
 
@@ -154,20 +158,24 @@ const onDeleteNoteClick = button => {
   fillCategoryTable();
 };
 
+// Click handler for "Archive All" button on the page
 const onArchiveAllNoteClick = () => {
   archiveAllData('notes', getCurrentFilterValue());
   NotesTableBody.innerHTML = '';
   fillCategoryTable();
 };
 
+// Click handler for "Delete All" button on the page
 const onDeleteAllNoteClick = () => {
   deleteAllData('notes', getCurrentFilterValue());
   NotesTableBody.innerHTML = '';
   fillCategoryTable();
 };
 
+// Fill the table with notes when the page loads
 fillNotesTable();
 
+// Add event listeners for various buttons on the page
 AddNoteButton.addEventListener('click', onAddNoteClick);
 NotesTable.addEventListener('click', event => {
   if (event.target.classList.contains('notes_editButton')) {
