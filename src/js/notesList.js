@@ -29,7 +29,7 @@ export const notesMarkup = (notesArr, editable = false) => {
     .map(({ id, name, content, createdAt, category }) => {
       const dates = extractDatesFromText(content);
       return `<tr class="${editable ? 'editable' : ''}" id=${id}>
-  <td><input type="text" value="${name}" name="name"  ${
+  <td class="notes_category_icon ${category}"></td><td ><input  type="text" value="${name}" name="name"  ${
     editable ? '' : 'readonly'
   } /></td>
   <td>${createdAt}</td>
@@ -191,3 +191,5 @@ NotesTable.addEventListener('click', event => {
     onDeleteAllNoteClick(event.target);
   }
 });
+
+// вирішити проблему з іконками для категорій. Може додати ще 1 тдшку
