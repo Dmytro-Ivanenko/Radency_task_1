@@ -29,6 +29,7 @@
     "sass": "^1.64.1"
   },
   "dependencies": {
+    "notiflix": "^3.2.6",
     "uniqid": "^5.4.0"
   }
 }

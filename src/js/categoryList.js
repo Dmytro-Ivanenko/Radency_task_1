@@ -1,23 +1,25 @@
 import { getData } from '../services/storageAPI';
+
 const CategoryTable = document.querySelector('#categoryTableBody');
 
+// Generate the markup for a single row in the category table
 const categoryMarkup = notesArr => {
   const markup = notesArr
     .map(
       ({ category, active, archived }) =>
         `<tr>
-  <td class="notes_category_icon ${category}"></td>      
-  <td>${category}</td>
-  <td>${active}</td>
-  <td>${archived}</td>
-
-</tr>`
+          <td class="notes_category_icon ${category}"></td>      
+          <td>${category}</td>
+          <td>${active}</td>
+          <td>${archived}</td>
+        </tr>`
     )
     .join('');
 
   return markup;
 };
 
+// Count the number of active and archived notes for each category
 const countNotesByCategory = notes => {
   const categories = {};
 
@@ -41,10 +43,12 @@ const countNotesByCategory = notes => {
   }));
 };
 
+// Populate the category table with data
 export const fillCategoryTable = () => {
   const notes = getData('notes');
   const categoryArr = countNotesByCategory(notes);
   CategoryTable.innerHTML = categoryMarkup(categoryArr);
 };
 
+// Call the fillCategoryTable function to populate the table with data
 fillCategoryTable();
