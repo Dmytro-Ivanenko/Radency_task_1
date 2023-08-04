@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Task 1 for internship in Radency",
   "main": "index.html",
+  "private": true,
+  "browserslist": "> 0.2%, last 4 versions, not dead",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /Radency_task_1/"
@@ -23,7 +25,7 @@
     "@babel/core": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
     "eslint": "^8.46.0",
-    "parcel-bundler": "^1.12.5",
+    "parcel-bundler": "^1.8.1",
     "posthtml-include": "^1.7.4",
     "prettier": "^3.0.0",
     "sass": "^1.64.1"
