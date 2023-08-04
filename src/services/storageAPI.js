@@ -64,7 +64,7 @@ export const archiveData = (key, id) => {
       return note;
     });
     localStorage.setItem(key, JSON.stringify(updatedArr));
-    Notify.success('Element archived');
+    Notify.success('Success');
   } catch (error) {
     Notify.failure('An error occurred, the item were not archived..');
   }
