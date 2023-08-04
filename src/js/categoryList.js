@@ -6,6 +6,7 @@ const categoryMarkup = notesArr => {
     .map(
       ({ category, active, archived }) =>
         `<tr>
+  <td class="notes_category_icon ${category}"></td>      
   <td>${category}</td>
   <td>${active}</td>
   <td>${archived}</td>
