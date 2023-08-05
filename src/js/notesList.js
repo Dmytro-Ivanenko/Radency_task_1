@@ -191,5 +191,3 @@ NotesTable.addEventListener('click', event => {
     onDeleteAllNoteClick(event.target);
   }
 });
-
-// вирішити проблему з іконками для категорій. Може додати ще 1 тдшку
